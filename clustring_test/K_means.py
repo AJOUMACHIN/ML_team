@@ -4,7 +4,7 @@ sample_data = np.load('sample_data.npy',allow_pickle=True)
 # fruits = np.load('fruits_300.npy')
 # If M is (32 x 32 x 3), then .reshape(1,-1) will produce a 2d array (not 1d), of shape (1, 32*32*3).
 # That can be reshaped back to (32,32,3) with the same sort of reshape statement.
-sample_data_2d = sample_data.reshape(-1, 100 * 100 )
+sample_data_2d = sample_data.reshape(-1, 100 * 100 * 3)
 
 print("sample_data의 shape 맞추기:", sample_data)
 print("sample_data_2d의 shape 맞추기:", sample_data_2d)
