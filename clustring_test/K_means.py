@@ -1,6 +1,6 @@
 import numpy as np
 
-sample_data = np.load('sample_data.npy',allow_pickle=True)
+sample_data = np.load('민소매.npy',allow_pickle=True)
 # fruits = np.load('fruits_300.npy')
 # If M is (32 x 32 x 3), then .reshape(1,-1) will produce a 2d array (not 1d), of shape (1, 32*32*3).
 # That can be reshaped back to (32,32,3) with the same sort of reshape statement.
@@ -15,7 +15,7 @@ print("sample_data_2d.shape:", sample_data_2d.shape)
 from sklearn.cluster import KMeans
 
 # K값을 지정해 준다.random_state=항상 값은값이 랜덤하게 나온다.
-km = KMeans(n_clusters=5)  # random_state=42 -> 항상 랜덤값이 같게 하기위해 쓴다.
+km = KMeans(n_clusters=10)  # random_state=42 -> 항상 랜덤값이 같게 하기위해 쓴다.
 # 사이킷 런의 철학은 nxd, 갯수x차원
 km.fit(sample_data_2d)
 # 할당된 레이블의 결과를 볼 수 있다.
@@ -56,3 +56,8 @@ draw_sample_data(sample_data[km.labels_ == 1])
 draw_sample_data(sample_data[km.labels_ == 2])
 draw_sample_data(sample_data[km.labels_ == 3])
 draw_sample_data(sample_data[km.labels_ == 4])
+draw_sample_data(sample_data[km.labels_ == 5])
+draw_sample_data(sample_data[km.labels_ == 6])
+draw_sample_data(sample_data[km.labels_ == 7])
+draw_sample_data(sample_data[km.labels_ == 8])
+draw_sample_data(sample_data[km.labels_ == 9])

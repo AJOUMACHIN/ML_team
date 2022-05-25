@@ -4,10 +4,10 @@ import numpy as np
 from PIL import Image
 
 # 이미지 리 사이징 하기
-targetdir = r"../크롤링/피케_카라티셔츠"  # 해당 폴더 설정
+targetdir = r"../크롤링/민소매티셔츠"  # 해당 폴더 설정
 files = os.listdir(targetdir)
-if(os.path.exists('../크롤링/피케_카라티셔츠/resize')==False):
-    os.mkdir('../크롤링/피케_카라티셔츠/resize')
+if(os.path.exists('../크롤링/민소매티셔츠/resize')==False):
+    os.mkdir('../크롤링/민소매티셔츠/resize')
     format = [".jpg", ".png", ".jpeg", "bmp", ".JPG", ".PNG", "JPEG", "BMP"]  # 지원하는 파일 형태의 확장자들
     for (path, dirs, files) in os.walk(targetdir):
         for file in files:
@@ -16,7 +16,7 @@ if(os.path.exists('../크롤링/피케_카라티셔츠/resize')==False):
                 print(image.filename)
                 print(image.size)
                 image = image.resize((100,100))
-                image.save('../크롤링/피케_카라티셔츠/resize/' + file)
+                image.save('../크롤링/민소매티셔츠/resize/' + file)
                 # image.save(file)
                 print(image.size)
 
@@ -25,7 +25,7 @@ if(os.path.exists('../크롤링/피케_카라티셔츠/resize')==False):
                 print("InValid", file)
 
 # 변환할 이미지 목록 불러오기
-image_path = '../크롤링/피케_카라티셔츠/resize/'
+image_path = '../크롤링/민소매티셔츠/resize/'
 img_list = os.listdir(image_path)  # 디렉토리 내 모든 파일 불러오기
 img_list_jpg = [img for img in img_list if img.endswith(".jpg")]  # 지정된 확장자만 필터링
 
@@ -41,6 +41,6 @@ for i in img_list_jpg:
     print(img_array.T.shape) #축변경 (색X가로X세로)
 
 img_np = np.array(img_list_np)  # 리스트를 numpy로 변환
-np.save('./sample_data', img_np)  # x_save.npy
+np.save('./민소매.npy', img_np)  # x_save.npy
 print(img_np.shape)
 print("결과: 정상적 으로 저장 완료")
